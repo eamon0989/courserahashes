@@ -27,8 +27,9 @@ Copy and paste this hash into the second box.
 It will check the hashes of the numbers 0000 to 1000 to see which matches your pin.
 </pre>
 <?php
+    if ( isset($_GET['md5hash']) ) {
     print hash('md5', $md5hash);
-
+    }
     
     ?>
 <pre>
@@ -50,7 +51,7 @@ $goodtext = "Not found";
         $time_pre = microtime(true);
         $md5 = $_GET['md5']; 
 
-        $numbers = "0123456789";
+        $numbers = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         $show = 15;
         $checks = 0;
 
