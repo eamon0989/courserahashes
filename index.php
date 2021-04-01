@@ -51,7 +51,7 @@ $goodtext = "Not found";
         $time_pre = microtime(true);
         $md5 = $_GET['md5']; 
 
-        $numbers = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $numbers = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!|@#·$~%&¬/()=?¿'¡*+[]ç}{;:_,.-<>";
         $show = 15;
         $checks = 0;
 
