@@ -1,7 +1,7 @@
 <?php
 
 $password; //the correct pin will be stored here and returned to user
-$show = 15; //amount of attempts to print
+// $show = 0; //amount of attempts to print
 $checks = 0; //how many hashes were checked
 
 
@@ -26,10 +26,10 @@ function codecracker1($input, $md5) { //this function takes the input and cracks
                                     return $password;
                                     break;
                                     }
-                                if ( $show > 0 ) {
-                                    print nl2br("$attempt $guess\n"); // prints the first few attempts until counter reaches 0
-                                    $show = $show - 1;
-                                    }
+                                // if ( $show > 0 ) {
+                                //     print nl2br("$attempt $guess\n"); // prints the first few attempts until counter reaches 0
+                                //     $show = $show - 1;
+                                //     }
                                 
                                 }
                         }
