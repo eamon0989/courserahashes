@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"> 
+    <link rel="stylesheet" href="style.css">   
     <?php    require'function.php'; ?>
 </head>
 <body>
@@ -36,7 +37,7 @@
         if ( isset($_GET['md5hash']) ) {
     $md5hash = $_GET['md5hash'];
         }
-    ?>
+?>
     <section class="section notification">
     <p>Copy and paste this hash into the second box.
     It will check the hashes of the numbers 0000 to 9999 to see which matches your pin.
@@ -45,11 +46,12 @@
     Letters and common symbols will take up to 30 seconds.
     </p>
     </section>
-    <div class="notification is-size-4 has-text-weight-medium">
+    <div id="invisible" class="notification is-size-4 has-text-weight-medium">
 
     <?php
         if ( isset($_GET['md5hash']) ) {
         print hash('md5', $md5hash);
+        echo '<script> document.getElementById("invisible").style.display = "block"; </script>';
         }
 
     ?>
