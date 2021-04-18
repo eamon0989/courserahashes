@@ -27,7 +27,7 @@ function codecracker1($input, $md5) { //this function takes the input and cracks
                                     break;
                                     }
                                 if ( $show > 0 ) {
-                                    print "$attempt $guess\n"; // prints the first few attempts until counter reaches 0
+                                    print nl2br("$attempt $guess\n"); // prints the first few attempts until counter reaches 0
                                     $show = $show - 1;
                                     }
                                 
@@ -56,21 +56,20 @@ function codecracker() {
                 if ($password != true) {
                     codecracker1($numletandsymb, $md5);
                     if ($password != true) {
-                        print "I can't crack this pin";
-                        print "\n";  
+                        print nl2br("I can't crack this pin\n");
+                        // print "\n";  
                     }
             }
         }
     $time_post = microtime(true);
-    print "Elapsed time: ";
+    print nl2br("Elapsed time: ");
     print $time_post-$time_pre; //working
     print "\n";  
 
     if ($password !=false) {
-        print "\n";  
-        print "Total number of hashes checked: $checks";
-        print "\n"; 
-        print "<strong>Your pin was: $password</strong>"; 
+        print nl2br("\n");  
+        print nl2br("Total number of hashes checked: $checks\n");
+        print nl2br("<strong>Your pin was: $password</strong>"); 
     }
 }
 
