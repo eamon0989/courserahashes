@@ -66,7 +66,7 @@ include('header.php');
     <?php
         if ( isset($_GET['md5']) ) {
             $pass_md5 = $_GET['md5'];
-            header("Location: result.php?md5=".$pass_md5);                
+            header("Location:result.php?md5=".$pass_md5);                
         }
     ?>
         </div>
