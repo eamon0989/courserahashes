@@ -61,17 +61,35 @@ include('header.php');
                 </div>
                 </div>    
                 </form>
+                </section>
+                </div>
+                <div id="invisible3">
+                <section class="section">
+                    <p class="notification">
+                        <?php
+                            if ( isset($_GET['md5']) ) {
+                                echo '<script> document.getElementById("invisible2").style.display = "none"; </script>';
+                                echo '<script> document.getElementById("invisible3").style.display = "block"; </script>';
+                                codecracker();
+                            }
+                        ?>
+                    </p>
+                    
+                    <div class="field has-text-centered">
+                    <div class="control">
+                        <button id="reset" class="button is-primary">Reset</button>
+                    </div>
+                    </div>   
+                    </div> 
+                    </div>                
         </section>
 
-    <?php
-        if ( isset($_GET['md5']) ) {
-            $pass_md5 = $_GET['md5'];
-            header("Location:result.php?md5=".$pass_md5);                
-        }
-    ?>
         </div>
     </div>
+
 </div>
 
 </body>
+<script src="script.js"></script>
+
 </html>
