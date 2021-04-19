@@ -9,3 +9,7 @@
 /* p {
 	max-width: 70ch;
 } */
+
+#invalid {
+	display: none;
+}
