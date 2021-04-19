@@ -14,7 +14,7 @@ include('header.php');
         <form>
             <div class="field">
             <div class="control">
-                <input class="input" type="text" name="md5hash" value="<?= $md5hash = htmlentities($_GET['md5hash']) ?>" size="60" placeholder="Write in any 4 digits here" />
+                <input class="input" type="text" name="md5hash" value="<?= $md5hash = htmlentities($_GET['md5hash']) ?>" minlength="4" maxlength="4" required="required" placeholder="Write in any 4 digits here" />
             </div>
             </div>
             <div class="field">
@@ -23,9 +23,15 @@ include('header.php');
             </div>
             </div>
         </form>
-    </section>
-   
+        <p id="invalid">Invalid symbol</p>
 
+    </section>
+
+<?php
+
+
+
+?>
     </div>
     <div class="container has-text-centered is-max-desktop">
 
@@ -41,12 +47,29 @@ include('header.php');
             </div>
             <div class="notification is-size-4 has-text-weight-medium">
                 <?php
-                    if ( isset($_GET['md5hash']) ) {
-                    print hash('md5', $md5hash);
-                    echo '<script> document.getElementById("invisible").style.display = "block"; </script>';
-                    echo '<script> document.getElementById("invisible2").style.display = "none"; </script>';
+
+// if (empty($md5hash))
+// {
+//     echo "<script>alert('Please fill all input fields to register!');</script>";
+// }
+                    $input1 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&=?¿*+;:";
+                    $continue = true; //problem with <>, check
+
+                    if (( isset($_GET['md5hash']) ) && ((strlen($md5hash)) != 0)) {
+                            for($i = 0; $i < strlen($md5hash); $i++) {
+                              $ch = $md5hash[$i];
+                              if ((strpos($input1, $ch)) != true) {
+                                echo '<script> document.getElementById("invalid").style.display = "block"; </script>';
+                                $continue = false;
+                                break;
+                              } 
+                    } if ($continue) {
+                        print hash('md5', $md5hash);
+                        echo '<script> document.getElementById("invisible").style.display = "block"; </script>';
+                        echo '<script> document.getElementById("invisible2").style.display = "none"; </script>';
+
                     }
-                
+                    }
                 ?>
             </div>
 
