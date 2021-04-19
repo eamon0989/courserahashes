@@ -46,7 +46,7 @@ function codecracker() {
 
     $numbers ="0123456789";
     $numbersandletters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    $numletandsymb = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&/()=?¿'¡*+[]}{;:_,.-<>|";
+    $numletandsymb = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&=?¿*+;:";
 
     $time_pre = microtime(true);
     $md5 = $_GET['md5'];

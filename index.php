@@ -14,30 +14,31 @@ include('header.php');
         <form>
             <div class="field">
             <div class="control">
-                <input class="input" type="text" name="md5hash" size="60" placeholder="Write in any 4 digits here" />
+                <input class="input" type="text" name="md5hash" value="<?= $md5hash = htmlentities($_GET['md5hash']) ?>" size="60" placeholder="Write in any 4 digits here" />
             </div>
             </div>
             <div class="field">
             <div class="control">
-                <input class="button is-primary" type="submit" value="Make MD5"/>
+                <input id="submitPin" class="button is-primary" type="submit" value="Make MD5"/>
             </div>
             </div>
         </form>
     </section>
    
-    <?php
-        if ( isset($_GET['md5hash']) ) {
-            $md5hash = $_GET['md5hash'];
-        }
-    ?>
+
+    </div>
+    <div class="container has-text-centered is-max-desktop">
+
     <div id="invisible">
         <section class="section">
-            <p class="notification">Copy and paste this hash into the second box.<br>
+            <div class="notification has-text-centered">
+            <p>Copy and paste this hash into the second box.<br>
             It will check the hashes of every possible option starting from 0000 until it finds your pin.<br><br>
             If your pin contains only numbers will solve in less than 1 second.
             If it contains only letters and numbers it will take less than 5 seconds.
             If it contains common symbols it can take up to 30 seconds.
             </p>
+            </div>
             <div class="notification is-size-4 has-text-weight-medium">
                 <?php
                     if ( isset($_GET['md5hash']) ) {
@@ -61,9 +62,9 @@ include('header.php');
                 </div>
                 </div>    
                 </form>
-                </section>
-                </div>
-                <div id="invisible3">
+        </section>
+    </div>
+            <div id="invisible3">
                 <section class="section">
                     <p class="notification">
                         <?php
@@ -80,9 +81,10 @@ include('header.php');
                         <button id="reset" class="button is-primary">Reset</button>
                     </div>
                     </div>   
-                    </div> 
-                    </div>                
-        </section>
+                </section>    
+            </div> 
+    </div>                
+
 
         </div>
     </div>
