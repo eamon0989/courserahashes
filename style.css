@@ -1,3 +1,7 @@
+* {
+	overflow-wrap: break-word;
+}
+
 #invisible {
 	display: none;
 }
@@ -6,10 +10,16 @@
 	display: none;
 }
 
-/* p {
-	max-width: 70ch;
-} */
+p {
+	max-width: 65ch;
+	margin: auto;
+	text-align: center;
+}
 
 #invalid {
 	display: none;
 }
+
+/* #centerText {
+	text-align: center;
+} */
