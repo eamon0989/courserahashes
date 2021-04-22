@@ -4,8 +4,8 @@ include('header.php');
 
 <section class="section has-text-centered hero is-primary">
     <div class="hero.body">
-        <h1 class="title">Md5 pin hasher:</h1>
-        <p class="subtitle">Hash your 4 digit pin here: </p>
+        <h1 class="title"><a href="index.php">Md5 pin hasher</a></h1>
+        <p id="changeText" class="subtitle">Hash your 4 digit pin here: </p>
     </div>
 </section>
 
@@ -66,6 +66,8 @@ include('header.php');
                         print hash('md5', $md5hash);
                         echo '<script> document.getElementById("invisible").style.display = "block"; </script>';
                         echo '<script> document.getElementById("invisible2").style.display = "none"; </script>';
+                        echo '<script> document.getElementById("changeText").textContent = "Decode your md5 hash here:"; </script>';
+                        
 
                     }
                     }
@@ -93,6 +95,8 @@ include('header.php');
                             if ( isset($_GET['md5']) ) {
                                 echo '<script> document.getElementById("invisible2").style.display = "none"; </script>';
                                 echo '<script> document.getElementById("invisible3").style.display = "block"; </script>';
+                                echo '<script> document.getElementById("changeText").textContent = "Your results:"; </script>';
+
                                 codecracker();
                             }
                         ?>
