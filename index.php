@@ -14,7 +14,7 @@ include('header.php');
         <form>
             <div class="field">
             <div class="control">
-                <input class="input" type="text" name="md5hash" value="<?= $md5hash = htmlentities($_GET['md5hash']) ?>" minlength="4" maxlength="4" required="required" placeholder="Write in any 4 digits here" />
+                <input class="input" type="text" name="md5hash" value="<?= $md5hash = htmlentities($_GET['md5hash']) ?>" minlength="4" maxlength="4" required="required" placeholder="Write in any 4 digits here, letters or numbers only" />
             </div>
             </div>
             <div class="field">
@@ -37,7 +37,7 @@ include('header.php');
 
     <div id="invisible">
         <section class="section">
-            <div class="notification has-text-centered">
+            <div id="centerText" class="notification has-text-centered">
             <p>Copy and paste this hash into the second box.<br>
             It will check the hashes of every possible option starting from 0000 until it finds your pin.<br><br>
             If your pin contains only numbers will solve in less than 1 second.
@@ -52,13 +52,12 @@ include('header.php');
 // {
 //     echo "<script>alert('Please fill all input fields to register!');</script>";
 // }
-                    $input1 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%&=?¿*+;:";
+                    $input1 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
                     $continue = true; //problem with <>, check
-
                     if (( isset($_GET['md5hash']) ) && ((strlen($md5hash)) != 0)) {
                             for($i = 0; $i < strlen($md5hash); $i++) {
                               $ch = $md5hash[$i];
-                              if ((strpos($input1, $ch)) != true) {
+                              if ((strpos($input1, $ch)) === false) { //check if current char is not found in $input1, needs strict equality, otherwise char pos 0 returns a false positive
                                 echo '<script> document.getElementById("invalid").style.display = "block"; </script>';
                                 $continue = false;
                                 break;
